@@ -24,7 +24,6 @@
     var vm = this;
 
     vm.userMetadata = {};
-    vm.preventEditing = false;
 
     vm.editRow = editRow;
     vm.deleteRow = deleteRow;
