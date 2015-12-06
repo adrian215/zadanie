@@ -1,0 +1,50 @@
+<table class="table users-table">
+  <thead>
+  <tr>
+    <th class="users-table-cell"></th>
+    <th class="users-table-cell">id</th>
+    <th class="users-table-cell">name</th>
+    <th class="users-table-cell">surname</th>
+    <th class="users-table-cell">date of birth</th>
+    <th class="users-table-cell">mobile number</th>
+    <th class="users-table-cell">address (city + street + house number)</th>
+    <th class="users-table-cell">
+      <button class="btn btn-info" ng-click="vm.multipleEdit = vm.editMultipleRows()"
+              ng-disabled="vm.preventEditing">Edit multiple rows
+      </button>
+    </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr class="users-table-row" ng-repeat="user in users track by $index">
+    <td class="users-table-cell"><input type="checkbox" ng-model="vm.userMetadata[user.id].selected"></td>
+    <td class="users-table-cell">{{user.id}}</td>
+    <td class="users-table-cell">
+      <editable-table-field value="user.name"
+                            edit-mode="vm.userMetadata[user.id].editing"></editable-table-field>
+    </td>
+    <td class="users-table-cell">
+      <editable-table-field value="user.surname"
+                            edit-mode="vm.userMetadata[user.id].editing"></editable-table-field>
+    </td>
+    <td class="users-table-cell">
+      <editable-table-field value="user.dateOfBirth"
+                            edit-mode="vm.userMetadata[user.id].editing"></editable-table-field>
+    </td>
+    <td class="users-table-cell">
+      <editable-table-field value="user.mobileNumber"
+                            edit-mode="vm.userMetadata[user.id].editing"></editable-table-field>
+    </td>
+    <td class="users-table-cell">
+      <editable-table-field value="user.address"
+                            edit-mode="vm.userMetadata[user.id].editing"></editable-table-field>
+    </td>
+    <td class="users-table-cell">
+      <button class="btn btn-info" ng-click="vm.editRow(user)" ng-disabled="vm.preventEditing">Edit
+      </button>
+      <button class="btn btn-danger" ng-click="vm.deleteRow(user, $index)" ng-disabled="vm.preventEditing">Delete
+      </button>
+    </td>
+  </tr>
+  </tbody>
+</table>
